@@ -36,3 +36,6 @@ Password : ` Builder `
 
 **Fake error**
 ![image](https://github.com/user-attachments/assets/55d6a057-bf2e-40a3-ad47-8b15baea9de4)
+
+**Fake Notification**
+![image](https://github.com/user-attachments/assets/1c79e0ff-3b6e-4339-a829-7701718cd57b)
