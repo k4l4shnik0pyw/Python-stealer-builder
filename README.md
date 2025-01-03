@@ -22,6 +22,13 @@
 - System notification (personalizable)
 - System error (personalizable)
 
+## For the login:
+
+Username : ` User `
+Password : ` Builder `
+
+(You can easily bypass it but i was trying some new things)
+
 ## Screenshots
 
 **Interface**
