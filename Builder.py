@@ -175,6 +175,7 @@ while True:
               options_file.write(f"<===== OPTION FOR {file_name} =====> \n \nWebhook url : {webhook_url} \n \n")
               for option in options_choosed:
                 options_file.write(option + "\n")
+              os.system(f"pyinstaller --noconfirm --onefile --noconsole --{file_name}.py")
             print(GREEN + "txt file successfully created ! \n")
           else:
             print("")
